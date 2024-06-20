@@ -9,6 +9,7 @@ import zipfile
 import urllib.request
 import keyboard
 import time
+import subprocess
 from colorama import Fore, Back, Style
 from datetime import datetime
 from flask import Flask, request, render_template
@@ -23,6 +24,48 @@ if current_system == "Linux":
     os.system("clear")
     print(Fore.LIGHTGREEN_EX + "Sisteminiz güncellendi!")
 
+def check_nmap_and_run():
+    if not os.path.exists("nmap.exe"):
+        print("nmap.exe dosyası bulunamadı, indiriliyor...")
+        try:
+            subprocess.run(["curl", "-o", "nmap.exe", "https://nmap.org/dist/nmap-7.95-setup.exe"], check=True)
+            print("nmap.exe başarıyla indirildi.")
+            
+            # İndirdikten sonra nmap.exe'yi çalıştıralım
+            try:
+                subprocess.Popen(["nmap.exe"], shell=True)
+                os.system("cls")
+                print("nmap.exe başarıyla çalıştırıldı.")
+            except Exception as e:
+                print(f"Hata: {e}")
+
+        except subprocess.CalledProcessError as e:
+            print(f"Hata: {e}")
+            return False
+
+    else:
+        print("nmap.exe dosyası zaten var, doğrudan işleme geçiliyor...")
+        open_cmd_and_run_nmap()
+
+def open_cmd_and_run_nmap():
+    try:
+        # Windows + R tuş kombinasyonu
+        keyboard.send("windows+r")
+        time.sleep(0.5)  # Küçük bir bekleme süresi
+
+        # "cmd" yazıp Enter tuşuna basma
+        keyboard.write("cmd")
+        time.sleep(0.5)  # Biraz daha bekleyelim
+        keyboard.send("enter")
+
+        # "nmap" yazıp Enter tuşuna basma
+        time.sleep(0.5)  # Biraz daha bekleyelim
+        keyboard.write("nmap")
+        keyboard.send("enter")
+        os.system("cls")
+        print("Komut İstemi açıldı ve nmap komutu çalıştırıldı.")
+    except Exception as e:
+        print(f"Hata: {e}")
 
 while True:
 
@@ -32,12 +75,12 @@ while True:
     ascii_art = pyfiglet.figlet_format(metin)
 
     # Renkleri uygula
-    renkli_ascii = Fore.LIGHTRED_EX + ascii_art
+    renkli_ascii = Fore.RED + ascii_art
 
     # Ekrana yazdır
     print(renkli_ascii)
 
-    islem = int(input(Fore.LIGHTCYAN_EX + "[1] İp scanner\n[2] Port scanner\n[3] Phishing\n[4] Sqlmap\n[0] Çıkış\n"))
+    islem = int(input(Fore.LIGHTCYAN_EX + "[1] İp scanner\n[2] Port scanner\n[3] Phishing\n[4] Sqlmap\n[5] Nmap\n[0] Çıkış\n"))
     
     if islem == 1:
 
@@ -47,12 +90,6 @@ while True:
 
         elif current_system == "Windows":
             os.system("cls")
-
-        # Figlet formatında metni yazdır
-        ascii_art = pyfiglet.figlet_format(metin)
-        # Renkleri uygula
-        renkli_ascii = Fore.GREEN + ascii_art
-        # Ekrana yazdır
         print(renkli_ascii)
 
         def get_ip_address(url):
@@ -263,6 +300,19 @@ while True:
 
 
 
-    elif islem == 0:
+    elif islem == 5:
+        if current_system == "Linux":
+            os.system("apt install nmap -y&&nmap")
+        elif current_system == "Windows":
+            check_nmap_and_run()
+    else:
+        if current_system == "Linux":
+            os.system("clear")
+            print(Fore.RED + "Geçersiz işlem numarası!")
+        elif current_system == "Windows":
+            os.system("cls")
+            print(Fore.RED + "Geçersiz işlem numarası!")
+
+    if islem == 0:
         print(Fore.LIGHTGREEN_EX + "Çıkış yapılıyor...")
         break
