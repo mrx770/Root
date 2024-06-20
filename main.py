@@ -259,7 +259,7 @@ while True:
                 for command in commands:
                     keyboard.write(command)
                     keyboard.press_and_release('enter')
-                    time.sleep(1)  # Her komuttan sonra kısa bir süre bekleyin
+                    time.sleep(0.5)  # Her komuttan sonra kısa bir süre bekleyin
 
 
 
