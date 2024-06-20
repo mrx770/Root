@@ -1,0 +1,5 @@
+colorama
+flask
+pyfiglet
+pyngrok
+keyboard
