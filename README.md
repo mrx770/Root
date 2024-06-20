@@ -8,7 +8,7 @@ Toolumuzun içerisinde otomatik bir şekilde python un en son sürümünü yükl
 
 # Windows
 
-**Öncelikle aşağıdaki adres'den toolumuzu .zip olarak indirip çıkartıyoruz.**
+**Öncelikle aşağıdaki adres'den toolumuzu .zip olarak indirip açıyoruz ve içerisinde bulunan Root-master dosyasını Downloads klasörüne atıyoruz**
 
 - **[Root-master.zip](https://github.com/mrx770/Root/archive/refs/heads/main.zip)**
 
@@ -17,7 +17,7 @@ Toolumuzun içerisinde otomatik bir şekilde python un en son sürümünü yükl
 
 **Python kurulum ekranında İnstall Now butonuna tıklıyoruz ve Python'u kuruyoruz.**
 
-**Sonrasında tek yapmamız gereken şey dozyamızdaki Root - Kısayol adındaki dosyayı masa üstüne sürükleyip çalıştırmak**
+**Sonrasında tek yapmamız gereken şey dozyamızdaki Root.bat dosyasını çalıştırmak**
 
 # Linux
 
