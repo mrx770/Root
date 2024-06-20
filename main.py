@@ -305,6 +305,11 @@ while True:
             os.system("apt install nmap -y&&nmap")
         elif current_system == "Windows":
             check_nmap_and_run()
+
+    if islem == 0:
+        print(Fore.LIGHTGREEN_EX + "Çıkış yapılıyor...")
+        break
+
     else:
         if current_system == "Linux":
             os.system("clear")
@@ -312,7 +317,3 @@ while True:
         elif current_system == "Windows":
             os.system("cls")
             print(Fore.RED + "Geçersiz işlem numarası!")
-
-    if islem == 0:
-        print(Fore.LIGHTGREEN_EX + "Çıkış yapılıyor...")
-        break
