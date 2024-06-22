@@ -308,7 +308,7 @@ while True:
                     # Dosyayı çıkarttıktan sonra master.zip dosyasını silebilirsiniz
                     os.remove(os.path.join(current_directory, zip_file_name))
 
-                    print(f"{zip_file_name} dosyası {current_directory} dizinine başarıyla çıkartıldı ve silindi.")
+                    print(Fore.LIGHTGREEN_EX + f"{zip_file_name} dosyası {current_directory} dizinine başarıyla çıkartıldı ve silindi.")
                 except zipfile.BadZipFile:
                     print(f"Hata! {zip_file_name} geçersiz bir zip dosyası.")
                 except Exception as e:
