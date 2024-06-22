@@ -26,7 +26,7 @@ if current_system == "Linux":
 
 def check_nmap_and_run():
     if not os.path.exists("nmap.exe"):
-        print("nmap.exe dosyası bulunamadı, indiriliyor...")
+        print(Fore.RED + "nmap.exe dosyası bulunamadı, indiriliyor...")
         try:
             subprocess.run(["curl", "-o", "nmap.exe", "https://nmap.org/dist/nmap-7.95-setup.exe"], check=True)
             print("nmap.exe başarıyla indirildi.")
@@ -35,7 +35,7 @@ def check_nmap_and_run():
             try:
                 subprocess.Popen(["nmap.exe"], shell=True)
                 os.system("cls")
-                print("nmap.exe başarıyla çalıştırıldı.")
+                print(Fore.LIGHTGREEN_EX + "nmap.exe başarıyla çalıştırıldı.")
             except Exception as e:
                 print(f"Hata: {e}")
 
@@ -44,7 +44,7 @@ def check_nmap_and_run():
             return False
 
     else:
-        print("nmap.exe dosyası zaten var, doğrudan işleme geçiliyor...")
+        print(Fore.LIGHTGREEN_EX + "nmap.exe dosyası zaten var, doğrudan işleme geçiliyor...")
         open_cmd_and_run_nmap()
 
 def open_cmd_and_run_nmap():
@@ -63,11 +63,48 @@ def open_cmd_and_run_nmap():
         keyboard.write("nmap")
         keyboard.send("enter")
         os.system("cls")
-        print("Komut İstemi açıldı ve nmap komutu çalıştırıldı.")
+        print(Fore.LIGHTGREEN_EX + "Komut İstemi açıldı ve nmap komutu çalıştırıldı.")
+    except Exception as e:
+        print(f"Hata: {e}")
+
+
+def check_metasploit_and_run():
+    if not os.path.exists("metasploit.msi"):
+        print(Fore.RED + "metasploit.msi dosyası bulunamadı, indiriliyor...")
+        try:
+            subprocess.run(["curl", "-o", "metasploit.msi", "https://windows.metasploit.com/metasploitframework-latest.msi"], check=True)
+            print("metasploit.msi başarıyla indirildi.")
+            
+            # İndirdikten sonra metasploit.msi'yi çalıştıralım
+            try:
+                subprocess.Popen(["metasploit.msi"], shell=True)
+                os.system("cls")
+                print(Fore.LIGHTGREEN_EX + "metasploit.msi başarıyla çalıştırıldı.")
+            except Exception as e:
+                print(f"Hata: {e}")
+
+        except subprocess.CalledProcessError as e:
+            print(f"Hata: {e}")
+            return False
+
+    else:
+        os.system("cls")
+        print(Fore.LIGHTGREEN_EX + "metasploit.msi dosyası zaten var, doğrudan işleme geçiliyor...")
+        open_cmd_and_run_metasploit()
+
+
+def open_cmd_and_run_metasploit():
+    try:
+        os.system("C:\\metasploit-framework\\bin\\msfconsole.bat")
     except Exception as e:
         print(f"Hata: {e}")
 
 while True:
+
+    if current_system == "Linux":
+        os.system("clear")
+    elif current_system == "Windows":
+        os.system("cls")
 
     metin = "Root"
 
@@ -80,7 +117,7 @@ while True:
     # Ekrana yazdır
     print(renkli_ascii)
 
-    islem = int(input(Fore.LIGHTCYAN_EX + "[1] İp scanner\n[2] Port scanner\n[3] Phishing\n[4] Sqlmap\n[5] Nmap\n[0] Çıkış\n"))
+    islem = int(input(Fore.LIGHTCYAN_EX + "[1] İp scanner\n[2] Port scanner\n[3] Phishing\n[4] Sqlmap\n[5] Nmap\n[6] Metasploit\n[0] Çıkış\n"))
     
     if islem == 1:
 
@@ -306,14 +343,14 @@ while True:
         elif current_system == "Windows":
             check_nmap_and_run()
 
+    elif islem == 6:
+        if current_system == "Linux":
+            os.system("cd&&sudo su")
+            os.system("curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
+  chmod 755 msfinstall && \
+  ./msfinstall")
+        elif current_system == "Windows":
+            check_metasploit_and_run()
     if islem == 0:
         print(Fore.LIGHTGREEN_EX + "Çıkış yapılıyor...")
         break
-
-    else:
-        if current_system == "Linux":
-            os.system("clear")
-            print(Fore.RED + "Geçersiz işlem numarası!")
-        elif current_system == "Windows":
-            os.system("cls")
-            print(Fore.RED + "Geçersiz işlem numarası!")
