@@ -1,6 +1,8 @@
 # Root
 **Root Hack Team Toplu Tool**
 
+![Root](https://i.hizliresim.com/ekp4n7n.PNG)
+
 Toolumuz hem Windows Hemde Linux'da çalışabilmesi için kodlanmıştır.
 Güncel tutulup işinizi kolaylaştırılması için geliştirilmiştir.
 
