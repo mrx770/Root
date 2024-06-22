@@ -13,11 +13,13 @@ Toolumuzun içerisinde otomatik bir şekilde python un en son sürümünü yükl
 - **[Root-master.zip](https://github.com/mrx770/Root/archive/refs/heads/main.zip)**
 
 **Sonrasında dosyamızın içinde bulunan install.bat dosyamızı çalıştırıyoruz.**
+**"Windows kişisel bilgisayarınızı korudu" diyecektir, Ek bilgi kısmına tıklayıp "Yinede çalıştır" diyoruz.**
 **Python'un orjinal setup dosyasını indiriyor ve otomatik olarak çalıştırıyor.**
 
 **Python kurulum ekranında İnstall Now butonuna tıklıyoruz ve Python'u kuruyoruz.**
 
 **Sonrasında tek yapmamız gereken şey dozyamızdaki Root.bat dosyasını çalıştırmak**
+**"Windows kişisel bilgisayarınızı korudu" diyecektir, Ek bilgi kısmına tıklayıp "Yinede çalıştır" diyoruz.**
 
 # Linux
 
