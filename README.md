@@ -6,7 +6,7 @@
 Toolumuz hem Windows Hemde Linux'da çalışabilmesi için kodlanmıştır.
 Güncel tutulup işinizi kolaylaştırılması için geliştirilmiştir.
 
-Toolumuzun içerisinde otomatik bir şekilde python un en son sürümünü yüklemesi için kodlanmıştır. Ve bilgisayarınızın x64 veya x32 olmasını tanıyarak Python'un sizin bilgisayarınızda sorunsuz çalşması için yapılmıştır.
+Toolumuzun içerisinde otomatik bir şekilde Python'un en son sürümünü yüklemesi için kodlanmıştır. Ve bilgisayarınızın x64 veya x32 olmasını tanıyarak Python'un sizin bilgisayarınızda sorunsuz çalşması için yapılmıştır.
 
 # Windows
 
