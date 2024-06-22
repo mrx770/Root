@@ -89,6 +89,7 @@ def check_metasploit_and_run():
 
     else:
         os.system("cls")
+        print(renkli_ascii)
         print(Fore.LIGHTGREEN_EX + "metasploit.msi dosyası zaten var, doğrudan işleme geçiliyor...")
         open_cmd_and_run_metasploit()
 
@@ -100,11 +101,6 @@ def open_cmd_and_run_metasploit():
         print(f"Hata: {e}")
 
 while True:
-
-    if current_system == "Linux":
-        os.system("clear")
-    elif current_system == "Windows":
-        os.system("cls")
 
     metin = "Root"
 
@@ -119,6 +115,12 @@ while True:
 
     islem = int(input(Fore.LIGHTCYAN_EX + "[1] İp scanner\n[2] Port scanner\n[3] Phishing\n[4] Sqlmap\n[5] Nmap\n[6] Metasploit\n[0] Çıkış\n"))
     
+    if current_system == "Linux":
+        os.system("clear")
+    elif current_system == "Windows":
+        os.system("cls")
+    print(renkli_ascii)
+
     if islem == 1:
 
         if current_system == "Linux":
