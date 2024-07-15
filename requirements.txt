@@ -1,0 +1,6 @@
+colorama
+flask
+pyfiglet
+pyngrok
+keyboard
+unidecode
